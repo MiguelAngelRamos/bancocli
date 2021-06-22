@@ -6,6 +6,7 @@
 
   <Buton tipo="Agregar Saldo" @accion="agregarSaldo"/>
   <Buton tipo="Disminuir" @accion="disminuirSaldo"/>
+  <!-- <Buttonestado :estadobtn="estado" @accionestado="cambiarEstado"/> -->
   </div>
 </template>
 
@@ -14,13 +15,15 @@
 import Navbar from './components/Navbar.vue'
 import Tabla from './components/Tabla.vue'
 import Buton from './components/Buton.vue'
+import Buttonestado from './components/Buttonestado.vue'
 
 export default {
   name: 'App',
   components: {
      Navbar,
      Tabla,
-     Buton
+     Buton,
+     Buttonestado
   },
   data () {
     return {
@@ -37,6 +40,9 @@ export default {
     },
     disminuirSaldo() {
       this.saldo = this.saldo - 100
+    },
+    cambiarEstado() {
+      this.estado? this.estado = false: this.estado = true
     }
   }
 }
